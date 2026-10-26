@@ -1,6 +1,6 @@
 /* Local-only app shell. PDFs, setlists and annotations live in IndexedDB.
  * A failed precache must never replace a working offline installation. */
-const CACHE = 'liveset-v10-export-shell';
+const CACHE = 'liveset-v11-render-shell';
 const ASSETS = ['index.html', 'manifest.json', 'rooms.js', 'qrcode.js',
   'pdf.min.js', 'pdf-lib.min.js', 'pdf.worker.min.js', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 const urls = ASSETS.map(path => new URL(path, self.registration.scope).href);

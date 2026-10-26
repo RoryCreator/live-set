@@ -107,7 +107,7 @@ el('btnCloseShow').onclick=()=>{leave();originalClose();};
 el('roomInstrument').onchange=async()=>{selectedInstrument=el('roomInstrument').value;localStorage.setItem('liveSetInstrument',selectedInstrument);viewKey='';if(room?.role==='slave')await applyGuest();else if(currentSetlist&&el('showView').classList.contains('open'))await loadSong(currentIndex);};
 el('roomCreate').onclick=()=>start('master');el('roomJoin').onclick=()=>start('slave');el('roomLeave').onclick=leave;el('roomClose').onclick=()=>el('roomModal').classList.remove('open');el('roomQRRefresh').onclick=()=>shareQR().catch(e=>status(e.message));
 for(const id of ['btnRoom','dockRoom','topRoom'])el(id).onclick=openModal;
-el('roomServer').value=localStorage.getItem('liveSetServer')||(/^https?:$/.test(location.protocol)?location.origin:'http://192.168.1.10:8080');el('roomAppUrl').value=/^https?:$/.test(location.protocol)?location.href.split('#')[0]:'';
+el('roomServer').value=localStorage.getItem('liveSetServer')||'https://groovetime-servidor.onrender.com';el('roomAppUrl').value=/^https?:$/.test(location.protocol)?location.href.split('#')[0]:'';
 const link=new URLSearchParams(location.hash.slice(1));if(/^\d{4}$/.test(link.get('room')||'')){el('roomCode').value=link.get('room');if(link.get('server'))el('roomServer').value=link.get('server');ready.then(()=>{openModal();status('Elige tu instrumento y pulsa Unirse como esclavo');});}
 status('Sin sala');
 })();

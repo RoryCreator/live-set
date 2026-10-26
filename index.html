@@ -2172,7 +2172,7 @@ if(!isStandalone) $("btnInstall").style.display = "";
 let swReady = null;
 function offlineStatus(text){$("offlineStatus").textContent=text;}
 async function checkOfflineReady(){
-  const cache=await caches.open("liveset-v10-export-shell");
+  const cache=await caches.open("liveset-v11-render-shell");
   const urls=["index.html","manifest.json","rooms.js","qrcode.js","pdf.min.js","pdf.worker.min.js","pdf-lib.min.js","icon-180.png","icon-192.png","icon-512.png"];
   const entries=await Promise.all(urls.map(path=>cache.match(new URL(path,location.href).href)));
   if(entries.every(Boolean)) offlineStatus(navigator.onLine?"Disponible sin conexión":"Modo sin conexión");
